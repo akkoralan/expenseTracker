@@ -1,5 +1,6 @@
 package com.hnasoft.utilities;
 
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -12,14 +13,16 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class Driver {
+    private Driver() {
 
-
-    private Driver() {}
+    }
 
     private static WebDriver driver;
 
     public static WebDriver get() {
+        // Test
         if (driver == null) {
+            // this line will tell which browser should open based on the value from properties file
             String browser = ConfigurationReader.get("browser");
             switch (browser) {
                 case "chrome":
@@ -60,8 +63,6 @@ public class Driver {
                     break;
             }
 
-
-
         }
 
         return driver;
@@ -73,7 +74,4 @@ public class Driver {
             driver = null;
         }
     }
-
-
-
 }
