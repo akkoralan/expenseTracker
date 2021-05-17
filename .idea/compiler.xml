@@ -9,6 +9,5 @@
         <module name="expenseTracker" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="16" />
   </component>
 </project>

@@ -1,40 +1,18 @@
 package com.hnasoft.utilities;
 
-import org.apache.commons.io.FileUtils;
+
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class BrowserUtils {
-
-    /*
-     * takes screenshot
-     * @param name
-     * take a name of a test and returns a path to screenshot takes
-     */
-    public static String getScreenshot(String name) throws IOException {
-        // name the screenshot with the current date time to avoid duplicate name
-        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        // TakesScreenshot ---> interface from selenium which takes screenshots
-        TakesScreenshot ts = (TakesScreenshot) Driver.get();
-        File source = ts.getScreenshotAs(OutputType.FILE);
-        // full path to the screenshot location
-        String target = System.getProperty("user.dir") + "/test-output/Screenshots/" + name + date + ".png";
-        File finalDestination = new File(target);
-        // save the screenshot to the path given
-        FileUtils.copyFile(source, finalDestination);
-        return target;
-    }
 
     /**
      * Switches to new window by the exact title. Returns to original window if target title not found
@@ -180,7 +158,7 @@ public class BrowserUtils {
      */
     public static void verifyElementDisplayed(By by) {
         try {
-            Assert.assertTrue(Driver.get().findElement(by).isDisplayed(), "Element not visible: " + by);
+            Assert.assertTrue("Element not visible: " + by, Driver.get().findElement(by).isDisplayed());
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             Assert.fail("Element not found: " + by);
@@ -196,7 +174,7 @@ public class BrowserUtils {
      */
     public static void verifyElementNotDisplayed(By by) {
         try {
-            Assert.assertFalse(Driver.get().findElement(by).isDisplayed(), "Element should not be visible: " + by);
+            Assert.assertFalse("Element should not be visible: " + by, Driver.get().findElement(by).isDisplayed());
         } catch (NoSuchElementException e) {
             e.printStackTrace();
 
@@ -212,7 +190,7 @@ public class BrowserUtils {
      */
     public static void verifyElementDisplayed(WebElement element) {
         try {
-            Assert.assertTrue(element.isDisplayed(), "Element not visible: " + element);
+            Assert.assertTrue("Element not visible: " + element, element.isDisplayed());
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             Assert.fail("Element not found: " + element);
