@@ -1,6 +1,8 @@
 package com.hnasoft.stepDefinitions;
 
+import com.hnasoft.pages.LoginPage;
 import com.hnasoft.pages.RegisterPage;
+import com.hnasoft.utilities.BrowserUtils;
 import com.hnasoft.utilities.ConfigurationReader;
 import com.hnasoft.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -16,15 +18,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 
 public class LoginStepDefinition {
-    RegisterPage registerPage = new RegisterPage();
 
-    @Given("the user is on the login page and registered")
-    public void the_user_is_on_the_login_page_and_registered() {
+   LoginPage loginPage = new LoginPage();
+   RegisterPage registerPage = new RegisterPage();
 
+    @Given("registered user is on the login page")
+    public void registered_user_is_on_the_login_page() {
         String url = ConfigurationReader.get("url");
         Driver.get().get(url);
         registerPage.GetStarted.click();
-
     }
 
     @When("the user enter login informations")
@@ -32,12 +34,12 @@ public class LoginStepDefinition {
 
         String userEmail = ConfigurationReader.get("userEmail");
         String userPassword = ConfigurationReader.get("userPassword");
-        registerPage.userEmail.click();
-        registerPage.userEmail.sendKeys(userEmail);
-        registerPage.userPassword.click();
-        registerPage.userPassword.sendKeys(userPassword);
-        registerPage.Login.click();
 
+        loginPage.userEmail.click();
+        loginPage.userEmail.sendKeys(userEmail);
+        loginPage.userPassword.click();
+        loginPage.userPassword.sendKeys(userPassword);
+        loginPage.Login.click();
 
     }
 

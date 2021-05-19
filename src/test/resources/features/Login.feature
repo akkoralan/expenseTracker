@@ -1,7 +1,7 @@
 
 Feature: Login feature
-  @wip
+@wip
   Scenario: login as registered user
-    Given the user is on the login page and registered
+    Given registered user is on the login page
     When the user enter login informations
     Then the user should be able to login

@@ -7,30 +7,32 @@ import org.openqa.selenium.support.PageFactory;
 
 public  class RegisterPage extends DashboardPage {
 
+    public RegisterPage(){ PageFactory.initElements(Driver.get(), this); }
+
     @FindBy(xpath = "//a[text()='Get Started']")
     public WebElement GetStarted;
 
-    @FindBy(xpath = "//input[@type='email']")
-    public WebElement userEmail;
+    @FindBy(xpath = "//button[@type='button']")
+    public WebElement Register1;
 
-    @FindBy(xpath = "//input[@type='password']")
-    public WebElement userPassword;
+    @FindBy(id = "name")
+    public WebElement Name;
+
+    @FindBy(id = "email")
+    public WebElement Email;
+
+    @FindBy(id = "password")
+    public WebElement Password;
 
     @FindBy(xpath = "//button[@type='submit']")
+    public WebElement Register2;
+
+
+    @FindBy(xpath = "//button[@type='button']")
     public WebElement Login;
 
 
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/form/a")
-    public WebElement Register1;
-
-
-
-
-
-
-
-    public RegisterPage(){ PageFactory.initElements(Driver.get(), this); }
 
     // public String getPageSubTitle() {
     //ant time we are verifying page name, or page subtitle, loader mask appears
