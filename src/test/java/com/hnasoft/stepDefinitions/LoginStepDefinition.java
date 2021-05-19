@@ -24,8 +24,7 @@ public class LoginStepDefinition {
 
     @Given("registered user is on the login page")
     public void registered_user_is_on_the_login_page() {
-        String url = ConfigurationReader.get("url");
-        Driver.get().get(url);
+
         registerPage.GetStarted.click();
     }
 

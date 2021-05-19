@@ -13,8 +13,7 @@ public class RegisterStepDefinition {
 
     @Given("user on register page")
     public void user_on_register_page() {
-        String url = ConfigurationReader.get("url");
-        Driver.get().get(url);
+
         registerPage.GetStarted.click();
         BrowserUtils.waitFor(3);
         registerPage.Register1.click();
