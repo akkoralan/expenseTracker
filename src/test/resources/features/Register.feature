@@ -1,5 +1,5 @@
 Feature: Register feature
-@wip
+
   Scenario Outline: User should be able to register with required information
 
     Given user on register page

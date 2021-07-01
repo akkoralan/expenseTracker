@@ -24,8 +24,9 @@ public class LoginStepDefinition {
 
     @Given("registered user is on the login page")
     public void registered_user_is_on_the_login_page() {
-
+        BrowserUtils.waitFor(2);
         registerPage.GetStarted.click();
+
     }
 
     @When("the user enter login informations")
@@ -33,19 +34,23 @@ public class LoginStepDefinition {
 
         String userEmail = ConfigurationReader.get("userEmail");
         String userPassword = ConfigurationReader.get("userPassword");
-
         loginPage.userEmail.click();
+        BrowserUtils.waitFor(2);
         loginPage.userEmail.sendKeys(userEmail);
+           BrowserUtils.waitFor(2);
         loginPage.userPassword.click();
+        BrowserUtils.waitFor(2);
         loginPage.userPassword.sendKeys(userPassword);
+           BrowserUtils.waitFor(2);
         loginPage.Login.click();
+        BrowserUtils.waitFor(2);
 
     }
 
     @Then("the user should be able to login")
     public void the_user_should_be_able_to_login() {
-
-
+            BrowserUtils.waitFor(3);
+         Assert.assertTrue(loginPage.Signout.isDisplayed());
     }
 
 }
