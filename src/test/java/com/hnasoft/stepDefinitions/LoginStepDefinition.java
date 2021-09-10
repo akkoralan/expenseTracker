@@ -32,8 +32,8 @@ public class LoginStepDefinition {
     @When("the user enter login informations")
     public void the_user_enter_login_informations() {
 
-        String userEmail = ConfigurationReader.get("userEmail");
-        String userPassword = ConfigurationReader.get("userPassword");
+        String userEmail = ConfigurationReader.getProperty("userEmail");
+        String userPassword = ConfigurationReader.getProperty("userPassword");
         loginPage.userEmail.click();
         BrowserUtils.waitFor(2);
         loginPage.userEmail.sendKeys(userEmail);

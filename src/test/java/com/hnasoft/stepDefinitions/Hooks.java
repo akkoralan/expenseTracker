@@ -12,7 +12,7 @@ public class Hooks {
 
     @Before
     public void setUp() {
-        String url = ConfigurationReader.get("url");
+        String url = ConfigurationReader.getProperty("url");
         Driver.get().get(url);
 
         System.out.println("\tthis is coming from before");
