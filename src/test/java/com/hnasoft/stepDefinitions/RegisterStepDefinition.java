@@ -38,4 +38,36 @@ public class RegisterStepDefinition {
     public void user_should_be_able_to_register_and_on_the_login_page() {
 
     }
+
+
+    @When("user sends POST request to {string}")
+    public void user_sends_POST_request_to(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("status code {int}")
+    public void status_code(Integer int1) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("content type should be {string}")
+    public void content_type_should_be(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("json payload\\/response should contain: {string} message")
+    public void json_payload_response_should_contain_message(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("same data what is posted")
+    public void same_data_what_is_posted() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 }

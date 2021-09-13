@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         glue = "com/hnasoft/stepDefinitions",
         dryRun = false,
-        tags = "@wip"
+        tags = "@trans"
 
 )
 public class CukesRunner {
